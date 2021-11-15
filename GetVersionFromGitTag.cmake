@@ -31,6 +31,8 @@
 #
 # Author: Nuno Fachada
 
+find_package(Git QUIET)
+
 # Check if git is found...
 if (GIT_FOUND AND VERSION_UPDATE_FROM_GIT)
 
