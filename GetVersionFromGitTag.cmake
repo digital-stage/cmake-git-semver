@@ -89,7 +89,7 @@ if (GIT_FOUND AND VERSION_UPDATE_FROM_GIT)
 
 	# Save version to file (which will be used when Git is not available
 	# or VERSION_UPDATE_FROM_GIT is disabled)
-	file(WRITE ${CMAKE_SOURCE_DIR}/VERSION ${${PROJECT_NAME}_VERSION_STRING_FULL}
+	file(WRITE ${CMAKE_SOURCE_DIR}/automatically-generated-version ${${PROJECT_NAME}_VERSION_STRING_FULL}
 		"*" ${${PROJECT_NAME}_VERSION_STRING}
 		"*" ${${PROJECT_NAME}_VERSION_MAJOR}
 		"*" ${${PROJECT_NAME}_VERSION_MINOR}
@@ -101,7 +101,7 @@ if (GIT_FOUND AND VERSION_UPDATE_FROM_GIT)
 else()
 
 	# Git not available, get version from file
-	file(STRINGS ${CMAKE_SOURCE_DIR}/VERSION ${PROJECT_NAME}_VERSION_LIST)
+	file(STRINGS ${CMAKE_SOURCE_DIR}/automatically-generated-version ${PROJECT_NAME}_VERSION_LIST)
 	string(REPLACE "*" ";" ${PROJECT_NAME}_VERSION_LIST ${${PROJECT_NAME}_VERSION_LIST})
 	# Set partial versions
 	list(GET ${PROJECT_NAME}_VERSION_LIST 0 ${PROJECT_NAME}_VERSION_STRING_FULL)
